@@ -1,8 +1,8 @@
 using UnityEngine;
+using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
-    public Transform player;
     public GameObject bulletPrefab;
     public Transform firePoint;
 
@@ -13,29 +13,14 @@ public class GunController : MonoBehaviour
 
     void Update()
     {
-        FollowPlayer();
-        RotateToMouse();
+        // Keep gun aligned with player
+        transform.localRotation = Quaternion.identity;
 
         if (Input.GetMouseButton(0) && Time.time >= nextFireTime)
         {
             Shoot();
             nextFireTime = Time.time + fireRate;
         }
-    }
-
-    void FollowPlayer()
-    {
-        transform.position = player.position;
-    }
-
-    void RotateToMouse()
-    {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 direction = mousePos - transform.position;
-
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
     void Shoot()

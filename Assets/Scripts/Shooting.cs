@@ -12,23 +12,14 @@ public class GunShoot : MonoBehaviour
 
     void Update()
     {
-        RotateToMouse();
+        // Keep gun aligned with player (since it's a child)
+        transform.localRotation = Quaternion.identity;
 
         if (Input.GetMouseButton(0) && Time.time >= nextFireTime)
         {
             Shoot();
             nextFireTime = Time.time + fireRate;
         }
-    }
-
-    void RotateToMouse()
-    {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 direction = mousePos - transform.position;
-
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
     void Shoot()
