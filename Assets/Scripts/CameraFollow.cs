@@ -1,12 +1,36 @@
 using UnityEngine;
+using System.Collections;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform player;
+    private Transform player;
+    private bool canFollow = false;
 
-    void LateUpdate()
+    private void OnEnable()
     {
-        if (player == null) return;
+        GameController.OnPlayerSpawned += HandlePlayerSpawned;
+    }
+
+    private void OnDisable()
+    {
+        GameController.OnPlayerSpawned -= HandlePlayerSpawned;
+    }
+
+    private void HandlePlayerSpawned(GameObject playerObj)
+    {
+        player = playerObj.transform;
+        StartCoroutine(StartFollowingAfterDelay(2f));
+    }
+
+    private IEnumerator StartFollowingAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        canFollow = true;
+    }
+
+    private void LateUpdate()
+    {
+        if (!canFollow || player == null) return;
 
         transform.position = new Vector3(
             player.position.x,
@@ -15,3 +39,4 @@ public class CameraFollow : MonoBehaviour
         );
     }
 }
+

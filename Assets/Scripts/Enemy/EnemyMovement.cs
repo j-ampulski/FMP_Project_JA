@@ -1,5 +1,8 @@
 using UnityEngine;
-
+using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+using System;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField]
@@ -21,7 +24,7 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void FixedUpdate()
@@ -32,26 +35,26 @@ public class EnemyMovement : MonoBehaviour
     }
 
     private void UpdateTargetDirection()
-    { 
-        if (_playerAwarnessController.AwareOfPlayer) 
-        { 
+    {
+        if (_playerAwarnessController.AwareOfPlayer)
+        {
             _targetDirection = _playerAwarnessController.DirectionToPlayer;
         }
-        else 
-        { 
+        else
+        {
             _targetDirection = Vector2.zero;
         }
 
     }
 
-    private void RotateTowardsTarget() 
+    private void RotateTowardsTarget()
     {
-        if (_targetDirection == Vector2.zero) 
+        if (_targetDirection == Vector2.zero)
         {
             return;
         }
         Quaternion targetRotation = Quaternion.LookRotation(transform.forward, _targetDirection);
-        Quaternion rotation =   Quaternion.RotateTowards(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
+        Quaternion rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
 
         _rigidbody.SetRotation(rotation);
     }
