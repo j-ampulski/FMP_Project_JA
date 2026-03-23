@@ -3150,6 +3150,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 2
+--- !u!114 &1321659432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321659419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9acdc4b524847074ba77ab4e46e1f53d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
 --- !u!1 &1604037903
 GameObject:
   m_ObjectHideFlags: 0
@@ -5577,6 +5590,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1232399904256968753, guid: 75351aa622d22a54ba6ba346c649a0af, type: 3}
+      propertyPath: _speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1232399904256968753, guid: 75351aa622d22a54ba6ba346c649a0af, type: 3}
       propertyPath: _rotationSpeed
       value: 75
       objectReference: {fileID: 0}
@@ -5628,13 +5645,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5334122258682575038, guid: 75351aa622d22a54ba6ba346c649a0af, type: 3}
+      propertyPath: _playerAwarenessDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7814514487008105564, guid: 75351aa622d22a54ba6ba346c649a0af, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8846011579482982653, guid: 75351aa622d22a54ba6ba346c649a0af, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1410495604170659566, guid: 75351aa622d22a54ba6ba346c649a0af, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1321659425}
+    - targetCorrespondingSourceObject: {fileID: 1410495604170659566, guid: 75351aa622d22a54ba6ba346c649a0af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1321659432}
   m_SourcePrefab: {fileID: 100100000, guid: 75351aa622d22a54ba6ba346c649a0af, type: 3}
 --- !u!1 &2057814855
 GameObject:

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerAwarenessControler : MonoBehaviour
 {
@@ -11,10 +12,18 @@ public class PlayerAwarenessControler : MonoBehaviour
 
     private Transform _player;
 
-    private void Awake()
+    private IEnumerator Start()
     {
-        _player = FindObjectOfType<PlayerMovement>().transform; 
+        while (_player == null)
+        {
+            var p = FindObjectOfType<PlayerMovement>();
+            if (p != null)
+                _player = p.transform;
+
+            yield return null; // wait a frame
+        }
     }
+
 
     // Update is called once per frame
     void Update()

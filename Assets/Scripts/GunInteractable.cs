@@ -27,6 +27,7 @@ public class Interactable2D : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             Interact();
+            TutText.enabled = false;
         }
     }
 

@@ -12,7 +12,6 @@ public class PlayerRotation : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0, 0, angle);
 
-        // FIXED flipping (no scaling issues)
         Vector3 scale = transform.localScale;
         float originalX = Mathf.Abs(scale.x);
         float originalY = Mathf.Abs(scale.y);

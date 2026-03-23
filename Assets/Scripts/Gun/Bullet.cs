@@ -3,6 +3,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float lifeTime = 3f;
+    [SerializeField]
+    private int damage = 2;
 
     void Start()
     {
@@ -11,12 +13,12 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy")) 
+        EnemyHealth enemy = collision.GetComponent<EnemyHealth>();
+
+        if (enemy != null)
         {
-            // destroys enemy
-            Destroy(collision.gameObject);
-            //Destroysthe bullet
-            Destroy(gameObject);
+            enemy.TakeDamage(damage);
+            Destroy(gameObject); // bullet disappears on hit
         }
     }
 }
