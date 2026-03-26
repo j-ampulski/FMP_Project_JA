@@ -5,7 +5,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private Animator animator;
     public int maxHealth;
     private int currentHealth;
-    private const string flashRedAnim = "E_Flashred";
+    private const string flashRedAnim = "E_FlashRedW";
 
     private void Start()
     {

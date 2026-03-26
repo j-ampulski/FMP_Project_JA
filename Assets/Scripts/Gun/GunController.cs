@@ -4,7 +4,7 @@ using UnityEngine;
 public class GunController : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    public Transform firePoint;
+    public Transform[] firePoints;
 
     public float bulletSpeed = 20f;
     public float fireRate = 0.2f;
@@ -25,9 +25,12 @@ public class GunController : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        foreach (Transform fp in firePoints)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, fp.position, fp.rotation);
 
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.linearVelocity = firePoint.right * bulletSpeed;
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.linearVelocity = fp.right * bulletSpeed;
+        }
     }
 }

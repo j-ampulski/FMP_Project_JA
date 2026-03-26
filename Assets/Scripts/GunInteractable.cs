@@ -14,6 +14,14 @@ public class Interactable2D : MonoBehaviour
     private bool playerInRange = false;
     private GameObject playerGO;
 
+    [Header("Lights To Disable")]
+    public GameObject GunLighting;
+
+    [SerializeField]
+    [Header("All guns Together")]
+    private GameObject GunsTogether;
+
+
     void Start()
     {
         if (promptUI != null)
@@ -28,6 +36,8 @@ public class Interactable2D : MonoBehaviour
         {
             Interact();
             TutText.enabled = false;
+            GunLighting.active = false;
+            GunsTogether.active = false;
         }
     }
 

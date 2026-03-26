@@ -36,7 +36,7 @@ AnimatorController:
   m_Name: E_RedFlash
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: FlashRed
+  - m_Name: E_FlashRedW
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -95,7 +95,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: FlashRed
+    m_ConditionEvent: E_FlashRedW
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6158917921750442852}
@@ -132,7 +132,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 156857fd37d999941926ad4ffff604c7, type: 2}
+  m_Motion: {fileID: 7400000, guid: 87e62225b4ebf2548a7bc0c2c6027276, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
