@@ -6,7 +6,7 @@ public class EnemyHealth : MonoBehaviour
     public int maxHealth;
     private int currentHealth;
     private const string flashRedAnim = "E_FlashRedW";
-
+    public int ammountWorth = 1;
     private void Start()
     {
         currentHealth = maxHealth;
@@ -19,5 +19,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentHealth <= 0)
             Destroy(gameObject);
+        if (currentHealth<= 0 )
+        CurrencyManager.Instance.AddMoney(ammountWorth);
     }
 }
