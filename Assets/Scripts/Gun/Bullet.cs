@@ -14,10 +14,17 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         EnemyHealth enemy = collision.GetComponent<EnemyHealth>();
+        BossHealth Boss = collision.GetComponent<BossHealth>();
 
         if (enemy != null)
         {
             enemy.TakeDamage(damage);
+            Destroy(gameObject); // bullet disappears on hit
+        }
+
+        if (Boss != null)
+        {
+            Boss.TakeDamage(damage);
             Destroy(gameObject); // bullet disappears on hit
         }
     }
