@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a13be6fee9122b4b86f9db39351de8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerAwarenessDistance: 5
+  _playerAwarenessDistance: 10
 --- !u!50 &7814514487008105564
 Rigidbody2D:
   serializedVersion: 5
@@ -92,7 +92,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &4255007211020248029
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -166,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 3301442460391111884}
   maxHealth: 15
+  ammountWorth: 1
 --- !u!95 &3301442460391111884
 Animator:
   serializedVersion: 7

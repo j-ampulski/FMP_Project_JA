@@ -14,6 +14,9 @@ public class BossHealth : MonoBehaviour
     [Header("Wave 3 Zombies")]
     [SerializeField] private GameObject[] Wave3;
 
+    [SerializeField] 
+    private RoomDoorManager doorManager;
+
     public int amountWorth = 1;
 
     public int currentBossHealth { get; private set; }
@@ -64,6 +67,10 @@ public class BossHealth : MonoBehaviour
         if (currentBossHealth <= 0)
         {
             CurrencyManager.Instance.AddMoney(amountWorth);
+
+            if (doorManager != null)
+                doorManager.OpenDoors();
+
             Destroy(gameObject);
         }
     }

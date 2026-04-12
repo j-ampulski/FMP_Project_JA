@@ -422,6 +422,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   animator: {fileID: 5637223206544053538}
+  regenDelay: 3.5
+  regenInterval: 1.5
+  regenPercent: 0.1
 --- !u!95 &5637223206544053538
 Animator:
   serializedVersion: 7
