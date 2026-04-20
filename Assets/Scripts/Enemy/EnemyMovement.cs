@@ -21,12 +21,6 @@ public class EnemyMovement : MonoBehaviour
         _playerAwarnessController = GetComponent<PlayerAwarenessControler>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void FixedUpdate()
     {
         UpdateTargetDirection();
