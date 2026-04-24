@@ -47532,6 +47532,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5521546398176498029, guid: aaf79a6bf918981439b54c101de900cf, type: 3}
+      propertyPath: bossHealthSlider
+      value: 
+      objectReference: {fileID: 462114431}
+    - target: {fileID: 5521546398176498029, guid: aaf79a6bf918981439b54c101de900cf, type: 3}
       propertyPath: 'Wave1.Array.data[0]'
       value: 
       objectReference: {fileID: 764763227}

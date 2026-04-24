@@ -1,4 +1,8 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+using System;
 
 public class BossHealth : MonoBehaviour
 {
@@ -17,6 +21,9 @@ public class BossHealth : MonoBehaviour
     [SerializeField] 
     private RoomDoorManager doorManager;
 
+    [SerializeField]
+    private Slider bossHealthSlider;
+
     public int amountWorth = 1;
 
     public int currentBossHealth { get; private set; }
@@ -30,7 +37,9 @@ public class BossHealth : MonoBehaviour
     {
         currentBossHealth = MaxBossHealth;
 
-        
+        bossHealthSlider.maxValue = MaxBossHealth;
+        bossHealthSlider.value = currentBossHealth;
+
         SetWaveActive(Wave1, false);
         SetWaveActive(Wave2, false);
         SetWaveActive(Wave3, false);
@@ -39,6 +48,8 @@ public class BossHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentBossHealth -= damage;
+        currentBossHealth = Mathf.Clamp(currentBossHealth, 0, MaxBossHealth);
+        bossHealthSlider.value = currentBossHealth;
 
         float healthPercent = (float)currentBossHealth / MaxBossHealth * 100f;
 
