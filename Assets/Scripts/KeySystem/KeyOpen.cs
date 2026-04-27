@@ -6,6 +6,9 @@ public class KeyInteractTrigger : MonoBehaviour
     [Header("UI Prompt")]
     public TextMeshProUGUI keyPromptUI;
 
+    [Header("Tutorial Key")]
+    public TextMeshProUGUI KeyTut;
+
     private bool isPlayerNearby = false;
 
     [SerializeField]
@@ -25,6 +28,7 @@ public class KeyInteractTrigger : MonoBehaviour
         {
             PickupKey();
             OpenDoors();
+            KeyTut.enabled = false;
         }
     }
 

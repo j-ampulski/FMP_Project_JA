@@ -21,6 +21,9 @@ public class Interactable2D : MonoBehaviour
     [Header("All guns Together")]
     private GameObject GunsTogether;
 
+    [SerializeField]
+    [Header("Key tutorial text")]
+    private TextMeshProUGUI KeyTut;
 
     void Start()
     {
@@ -38,6 +41,7 @@ public class Interactable2D : MonoBehaviour
             TutText.enabled = false;
             GunLighting.active = false;
             GunsTogether.active = false;
+            KeyTut.gameObject.active = true;
         }
     }
 
@@ -98,7 +102,7 @@ public class Interactable2D : MonoBehaviour
         if (promptUI != null)
             promptUI.SetActive(false);
 
-        // Get rid of the main object
+        // Gets rid of the main object
         gameObject.SetActive(false);
 
     }

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      props_Albedo.tga_0: -2294855342368963410
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
