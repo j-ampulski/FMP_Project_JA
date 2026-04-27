@@ -1,8 +1,13 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+using System;
 
 public class DoorLockTrigger : MonoBehaviour
 {
-    [SerializeField] private RoomDoorManager doorManager;
+    [SerializeField] 
+    private RoomDoorManager doorManager;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -10,5 +15,6 @@ public class DoorLockTrigger : MonoBehaviour
         {
             doorManager.LockDoors();
         }
+        
     }
 }
