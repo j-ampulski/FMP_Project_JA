@@ -11,6 +11,8 @@ public class GunController : MonoBehaviour
 
     private float nextFireTime = 0f;
 
+    public AudioSource bulletSoundMain;
+
     void Update()
     {
         // Keep gun aligned with player
@@ -20,6 +22,7 @@ public class GunController : MonoBehaviour
         {
             Shoot();
             nextFireTime = Time.time + fireRate;
+            bulletSoundMain.Play();
         }
     }
 

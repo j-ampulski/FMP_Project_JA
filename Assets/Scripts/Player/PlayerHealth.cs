@@ -12,7 +12,9 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] 
     private float regenInterval = 1f;   
     [SerializeField] 
-    private float regenPercent = 0.10f; 
+    private float regenPercent = 0.10f;
+    [SerializeField]
+    private AudioSource TakeDamageAudio;
 
     public int currentHealth { get; private set; }
     public int maxHealth { get; private set; }
@@ -65,6 +67,7 @@ public class PlayerHealth : MonoBehaviour
 
         OnPlayerTakeDamage?.Invoke(currentHealth);
         animator.SetTrigger(flashRedAnim);
+        TakeDamageAudio.Play();
 
         if (currentHealth <= 0)
         {

@@ -14,6 +14,10 @@ public class KeyInteractTrigger : MonoBehaviour
     [SerializeField]
     [Header("Doors to open")]
     private GameObject[] DoorsToOpen;
+
+    public bool IsKeyOpen = false;
+
+
     void Start()
     {
         if (keyPromptUI != null)
@@ -29,6 +33,8 @@ public class KeyInteractTrigger : MonoBehaviour
             PickupKey();
             OpenDoors();
             KeyTut.enabled = false;
+
+            IsKeyOpen = true;
         }
     }
 

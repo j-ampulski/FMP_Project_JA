@@ -2,28 +2,28 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed = 5f; // how quick the player will move
 
-    private Rigidbody2D rb;
-    private Vector2 movement;
+    private Rigidbody2D rb; // getting the players rigidbody
+    private Vector2 movement; 
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>(); // sets the rb to the players rigidbody so the player moves
     }
 
     void Update()
     {
-        // Get input from keyboard
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+ 
+        movement.x = Input.GetAxisRaw("Horizontal"); // Gets horizontal movement from the keyboard and sets movement to horizontal
+        movement.y = Input.GetAxisRaw("Vertical"); // Gets horizontal movement from the keyboard and sets movement to vertical
 
         movement = movement.normalized;
     }
 
     void FixedUpdate()
     {
-        // Move the player
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);  // moves the player in the direction the player has  pressed
     }
 }
