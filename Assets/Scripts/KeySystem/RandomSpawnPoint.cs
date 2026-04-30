@@ -2,29 +2,24 @@ using UnityEngine;
 
 public class RandomSpawnPoint : MonoBehaviour
 {
-    public Transform spawnpoint1;
-    public Transform spawnpoint2;
-    public GameObject KeyPrefab;
+
+    public GameObject key1;
+    public GameObject key2;
+
 
     void Start()
     {
-        SpawnKey();
-    }
+        int random = Random.Range(0, 2); 
 
-    void SpawnKey() 
-    {
-        Transform chosenPoint;
-
-        if (Random.value < 0.5f)
+        if (random == 0)
         {
-            chosenPoint = spawnpoint1;
+            key1.SetActive(true);
+            key2.SetActive(false);
         }
         else
         {
-            chosenPoint = spawnpoint2;
-
+            key1.SetActive(false);
+            key2.SetActive(true);
         }
-
-        Instantiate(KeyPrefab, chosenPoint.position, Quaternion.identity);
     }
 }

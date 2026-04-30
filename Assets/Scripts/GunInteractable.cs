@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 public class Interactable2D : MonoBehaviour
 {
     [Header("UI Prompt")]
@@ -30,6 +31,7 @@ public class Interactable2D : MonoBehaviour
         if (promptUI != null)
             promptUI.SetActive(false);
     }
+
 
     void Update()
     {
@@ -106,4 +108,5 @@ public class Interactable2D : MonoBehaviour
         gameObject.SetActive(false);
 
     }
+
 }
