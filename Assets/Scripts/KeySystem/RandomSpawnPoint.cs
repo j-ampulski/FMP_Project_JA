@@ -9,9 +9,9 @@ public class RandomSpawnPoint : MonoBehaviour
 
     void Start()
     {
-        int random = Random.Range(0, 2); 
+        int random = Random.Range(0, 2); // picks a random number 
 
-        if (random == 0)
+        if (random == 0) 
         {
             key1.SetActive(true);
             key2.SetActive(false);

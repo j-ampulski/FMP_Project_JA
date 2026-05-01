@@ -26,10 +26,10 @@ public class Shotgun : MonoBehaviour
 
     void Update()
     {
-        // Keep gun aligned with player
-        transform.localRotation = Quaternion.identity;
+      
+        transform.localRotation = Quaternion.identity; // Keep gun aligned with player
 
-        if (Input.GetMouseButton(0) && Time.time >= nextFireTime)
+        if (Input.GetMouseButton(0) && Time.time >= nextFireTime) // Checks if the mouse button is down and also if the fire time is done
         {
             Shoot();
             nextFireTime = Time.time + fireRate;
@@ -38,9 +38,9 @@ public class Shotgun : MonoBehaviour
 
     void Shoot()
     {
-        float step = spreadAngle * 2 / (pelletCount - 1);
+        float step = spreadAngle * 2 / (pelletCount - 1); // makes the spread angle divided by the pellet count to see how spread each bullet should be
 
-        for (int i = 0; i < pelletCount; i++)
+        for (int i = 0; i < pelletCount; i++) 
         {
             float angle = -spreadAngle + (step * i);
             Quaternion rotation = firePoint.rotation * Quaternion.Euler(0, 0, angle);

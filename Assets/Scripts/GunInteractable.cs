@@ -10,7 +10,7 @@ public class Interactable2D : MonoBehaviour
     public string itemNameToEnable = "Gun";
 
     [Header("Tutorial text to disable")]
-    public TextMeshProUGUI TutText;
+    public GameObject TutText;
 
     private bool playerInRange = false;
     private GameObject playerGO;
@@ -24,7 +24,7 @@ public class Interactable2D : MonoBehaviour
 
     [SerializeField]
     [Header("Key tutorial text")]
-    private TextMeshProUGUI KeyTut;
+    private GameObject KeyTut;
 
     void Start()
     {
@@ -35,66 +35,66 @@ public class Interactable2D : MonoBehaviour
 
     void Update()
     {
-        if (!playerInRange) return;
+        if (!playerInRange) return; // checks if the player is in range of the guns
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E)) // checks if the user presses the letter E on their keyboard
         {
-            Interact();
-            TutText.enabled = false;
+            Interact();                            
+            TutText.SetActive(false);
             GunLighting.active = false;
             GunsTogether.active = false;
-            KeyTut.gameObject.active = true;
+            KeyTut.SetActive(true);
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)   
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player"))  // checks if the player is colliding with the guns
         {
-            playerGO = other.gameObject;
-            playerInRange = true;
+            playerGO = other.gameObject; 
+            playerInRange = true;             // Checks if the player is in range 
 
             if (promptUI != null)
-                promptUI.SetActive(true);
+                promptUI.SetActive(true);           // If player isnt in range then keep the Prompt text popped up
 
-            TutText.enabled = false;
+            TutText.SetActive(false);
         }
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    void OnTriggerExit2D(Collider2D other) 
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player"))   // checks if the player is colliding with the guns
         {
-            playerInRange = false;
+            playerInRange = false;  // Checks if the player is not in range
 
             if (promptUI != null)
-                promptUI.SetActive(false);
+                promptUI.SetActive(false); // if the player is not in range then hide the prompt text
 
-            TutText.enabled = true;
+            TutText.SetActive(true);
         }
     }
 
     void Interact()
     {
-        if (playerGO == null)
+        if (playerGO == null) // checks if the player exists
         {
             return;
         }
 
         Transform foundItem = null;
 
-        foreach (Transform t in playerGO.GetComponentsInChildren<Transform>(true))
+        foreach (Transform t in playerGO.GetComponentsInChildren<Transform>(true)) // Gets the players children so the guns
         {
-            if (t.name == itemNameToEnable)
+            if (t.name == itemNameToEnable)  // checks if the name of the gun matches the child
             {
                 foundItem = t;
                 break;
             }
         }
 
-        if (foundItem != null)
+        if (foundItem != null)   
         {
-            foundItem.gameObject.SetActive(true);
+            foundItem.gameObject.SetActive(true);          // Turns the childs object on so guns appear
         }
         else
         {
@@ -104,8 +104,8 @@ public class Interactable2D : MonoBehaviour
         if (promptUI != null)
             promptUI.SetActive(false);
 
-        // Gets rid of the main object
-        gameObject.SetActive(false);
+        
+        gameObject.SetActive(false);  // Gets rid of the main object
 
     }
 

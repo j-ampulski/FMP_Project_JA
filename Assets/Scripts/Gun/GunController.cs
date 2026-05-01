@@ -15,25 +15,25 @@ public class GunController : MonoBehaviour
 
     void Update()
     {
-        // Keep gun aligned with player
-        transform.localRotation = Quaternion.identity;
+       
+        transform.localRotation = Quaternion.identity; // makes sure the gun is aligned with the player
 
-        if (Input.GetMouseButton(0) && Time.time >= nextFireTime)
+        if (Input.GetMouseButton(0) && Time.time >= nextFireTime) // checking if the mouse button is down
         {
-            Shoot();
-            nextFireTime = Time.time + fireRate;
-            bulletSoundMain.Play();
+            Shoot();              
+            nextFireTime = Time.time + fireRate; //Resets the next fire time
+            bulletSoundMain.Play();  // plays the audio
         }
     }
 
-    void Shoot()
+    void Shoot()  
     {
-        foreach (Transform fp in firePoints)
+        foreach (Transform fp in firePoints)  // Since fire points is a array 
         {
-            GameObject bullet = Instantiate(bulletPrefab, fp.position, fp.rotation);
+            GameObject bullet = Instantiate(bulletPrefab, fp.position, fp.rotation); // Instantiates the bullet where the player is looking
 
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.linearVelocity = fp.right * bulletSpeed;
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>(); // gets the bullets rigidbody
+            rb.linearVelocity = fp.right * bulletSpeed; // makes the bullet travel to what you set it to 
         }
     }
 }

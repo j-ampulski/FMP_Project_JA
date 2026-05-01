@@ -26,9 +26,9 @@ public class PlayerHealth : MonoBehaviour
 
     private float timeSinceLastDamage = 0f;
     private float regenTimer = 0f;
-    private bool isDead = false;
+    private bool isDead = false;    // all variables
 
-    void Awake()
+    void Awake()   
     {
         currentHealth = health;
         maxHealth = health;
@@ -36,15 +36,15 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        if (isDead || currentHealth >= maxHealth) return;
+        if (isDead || currentHealth >= maxHealth) return; // Checks if the player is dead OR if the players health is currently more or equal to the players max health
 
-        timeSinceLastDamage += Time.deltaTime;
+        timeSinceLastDamage += Time.deltaTime;  // adds time since last damage
 
-        if (timeSinceLastDamage >= regenDelay)
+        if (timeSinceLastDamage >= regenDelay) // checks if time since less damage is more or equal to regen delay
         {
-            regenTimer += Time.deltaTime;
+            regenTimer += Time.deltaTime;  
 
-            if (regenTimer >= regenInterval)
+            if (regenTimer >= regenInterval)  // if regen timer is more than regen interval then regen health
             {
                 regenTimer = 0f;
                 Regenerate();
@@ -52,18 +52,18 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    void Regenerate()
+    void Regenerate() 
     {
-        int regenAmount = Mathf.Max(1, Mathf.RoundToInt(maxHealth * regenPercent));
-        currentHealth = Mathf.Min(currentHealth + regenAmount, maxHealth);
+        int regenAmount = Mathf.Max(1, Mathf.RoundToInt(maxHealth * regenPercent)); // regens percentage of health that its set to
+        currentHealth = Mathf.Min(currentHealth + regenAmount, maxHealth);  // makes sure that current health is set to what it regened
         OnPlayerTakeDamage?.Invoke(currentHealth);
     }
 
-    public void TakeDamage(int damageAmount)
+    public void TakeDamage(int damageAmount)  
     {
-        currentHealth -= damageAmount;
-        timeSinceLastDamage = 0f;  
-        regenTimer = 0f;           
+        currentHealth -= damageAmount;  // changes the lpayers health by damage taken
+        timeSinceLastDamage = 0f;   // resets timer since last damage
+        regenTimer = 0f;        // resets regen timer   
 
         OnPlayerTakeDamage?.Invoke(currentHealth);
         animator.SetTrigger(flashRedAnim);
@@ -72,7 +72,7 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             isDead = true;
-            OnPlayerDie?.Invoke();
+            OnPlayerDie?.Invoke();  
             gameObject.SetActive(false);
         }
     }
