@@ -7,22 +7,30 @@ using System;
 public class BossHealth : MonoBehaviour
 {
     [Header("Set The Boss Health")]
-    [SerializeField] private int MaxBossHealth = 100;
+    [SerializeField] 
+    private int MaxBossHealth = 100;
 
     [Header("Wave 1 Zombies")]
-    [SerializeField] private GameObject[] Wave1;
+    [SerializeField] 
+    private GameObject[] Wave1;
 
     [Header("Wave 2 Zombies")]
-    [SerializeField] private GameObject[] Wave2;
+    [SerializeField] 
+    private GameObject[] Wave2;
 
     [Header("Wave 3 Zombies")]
-    [SerializeField] private GameObject[] Wave3;
+    [SerializeField] 
+    private GameObject[] Wave3;
 
     [SerializeField] 
     private RoomDoorManager doorManager;
 
     [SerializeField]
     private Slider bossHealthSlider;
+
+    [SerializeField]
+    private GameObject Bosstut;
+
 
     public int amountWorth = 1;
 
@@ -78,6 +86,8 @@ public class BossHealth : MonoBehaviour
         if (currentBossHealth <= 0)
         {
             CurrencyManager.Instance.AddMoney(amountWorth);
+            
+            Bosstut.SetActive(false);
 
             if (doorManager != null)
                 doorManager.OpenDoors();
