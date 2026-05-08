@@ -22,7 +22,7 @@ public class DeathScreenManager : MonoBehaviour
 
     void ShowDeathScreen()
     {
-        deathScreen.SetActive(true);
+        deathScreen.SetActive(true); 
 
         if (CurrencyManager.Instance != null)
         {
