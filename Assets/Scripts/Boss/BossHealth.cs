@@ -43,7 +43,7 @@ public class BossHealth : MonoBehaviour
 
     void Start()
     {
-        currentBossHealth = MaxBossHealth;
+        currentBossHealth = MaxBossHealth;  // setting the bosses health
 
         bossHealthSlider.maxValue = MaxBossHealth;
         bossHealthSlider.value = currentBossHealth;
@@ -55,50 +55,50 @@ public class BossHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentBossHealth -= damage;
-        currentBossHealth = Mathf.Clamp(currentBossHealth, 0, MaxBossHealth);
-        bossHealthSlider.value = currentBossHealth;
+        currentBossHealth -= damage;  // adjustings bosses health to damage
+        currentBossHealth = Mathf.Clamp(currentBossHealth, 0, MaxBossHealth); 
+        bossHealthSlider.value = currentBossHealth; // setting the bosses UI health bar to its health
 
-        float healthPercent = (float)currentBossHealth / MaxBossHealth * 100f;
+        float healthPercent = (float)currentBossHealth / MaxBossHealth * 100f; // finding the bosses health percentage
 
-        // Wave 1 below 75%
-        if (!wave1Triggered && healthPercent <= 75f)
+        
+        if (!wave1Triggered && healthPercent <= 75f)   // Triggering Wave 1 below 75%
         {
             SetWaveActive(Wave1, true);
             wave1Triggered = true;
         }
 
-        // Wave 2 below 40%
-        if (!wave2Triggered && healthPercent <= 40f)
+        
+        if (!wave2Triggered && healthPercent <= 40f) // Triggering wave 2 below 40%
         {
             SetWaveActive(Wave2, true);
             wave2Triggered = true;
         }
 
-        // Wave 3 below 20%
-        if (!wave3Triggered && healthPercent <= 20f)
+       
+        if (!wave3Triggered && healthPercent <= 20f) // Triggering wave 3 below 20%
         {
             SetWaveActive(Wave3, true);
             wave3Triggered = true;
         }
 
-        // Death
-        if (currentBossHealth <= 0)
+        
+        if (currentBossHealth <= 0) // Bosses Death
         {
-            CurrencyManager.Instance.AddMoney(amountWorth);
+            CurrencyManager.Instance.AddMoney(amountWorth); // Giving the player the score its set to
             
-            Bosstut.SetActive(false);
+            Bosstut.SetActive(false);        // getting rid of the boss UI
 
             if (doorManager != null)
                 doorManager.OpenDoors();
 
-            Destroy(gameObject);
+            Destroy(gameObject);  // Getting rid of the Boss
         }
     }
 
-    void SetWaveActive(GameObject[] wave, bool state)
+    void SetWaveActive(GameObject[] wave, bool state) // Checking What wave got spawned
     {
-        foreach (GameObject zombie in wave)
+        foreach (GameObject zombie in wave) // since its a array it has to go through each object in it then enable it
         {
             if (zombie != null)
                 zombie.SetActive(state);
