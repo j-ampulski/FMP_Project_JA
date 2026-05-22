@@ -49583,6 +49583,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5521546398176498029, guid: aaf79a6bf918981439b54c101de900cf, type: 3}
+      propertyPath: Bosstut
+      value: 
+      objectReference: {fileID: 1752159409}
+    - target: {fileID: 5521546398176498029, guid: aaf79a6bf918981439b54c101de900cf, type: 3}
       propertyPath: doorManager
       value: 
       objectReference: {fileID: 423373225}
