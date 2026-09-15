@@ -4,7 +4,7 @@ This is my Final Major Project developed in Unity using C#.
 
 The project was created to develop my skills in game design, programming, and problem-solving while producing a complete playable game. During development I worked on gameplay systems, UI design, level creation, and visual effects. So overall i made a 2d dungeon crawler in unity.
 
-##How it plays
+# How it plays
 
 You start in the tutorial area with no weapon. Walk up to the guns, press E, and they get enabled on the player. From there:
 
