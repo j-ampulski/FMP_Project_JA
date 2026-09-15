@@ -25,7 +25,7 @@ Through this project I gained experience with:
 1. Clone the repository.
 2. Open the project in Unity Hub.
 3. Launch the project using the correct Unity version.
-4. Open the main scene and press Play.
+4. Open the main scene or the home page screen and press Play.
 
 ## Project Status
 
